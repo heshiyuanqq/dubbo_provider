@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class Boot {
+public class Boot1 {
 
 	public static void main(String[] args) {
-		 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("dubbo_provider.xml");
+		 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("dubbo_provider1.xml");
 	        context.start();
 
-			System.out.println("dubbo service begin to start");
+			System.out.println("dubbo service1 begin to start");
 	        try {
 	            System.in.read();
 	        } catch (IOException e) {

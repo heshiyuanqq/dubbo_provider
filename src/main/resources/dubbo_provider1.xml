@@ -32,7 +32,10 @@
     <!--   <dubbo:annotation package="com.dubbo.test" /> -->
 
     <dubbo:service 	interface="com.dubbo.test.service.UserService" 
-    				ref="userService"
+    				ref="userService1_1"
+    				protocol="dubbo"/>
+    <dubbo:service 	interface="com.dubbo.test.service.UserService" 
+    				ref="userService1_2"
     				protocol="dubbo"/>
 
     <context:component-scan base-package="com.dubbo.test" />

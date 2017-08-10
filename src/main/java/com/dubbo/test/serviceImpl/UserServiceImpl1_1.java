@@ -9,8 +9,8 @@ import com.dubbo.test.pojo.User;
 import com.dubbo.test.service.UserService;
 
 
-@Service("userService")
-public class UserServiceImpl implements UserService{
+@Service("userService1_1")
+public class UserServiceImpl1_1 implements UserService{
 
 	public static ArrayList<User>  db=new ArrayList<User>();
 	
@@ -113,6 +113,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public int getint() {
+		System.out.println("我是dubbo_provider1.xml中的第1个实现类(userService1_1)");
 		return 13;
 	}
 
