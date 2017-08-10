@@ -18,7 +18,5 @@ public class Boot2 {
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
-	        
-	       new HashMap<K, V>()
 	}
 }

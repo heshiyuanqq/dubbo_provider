@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+    <dubbo:application name="dubbo_provider2" />
+
+    <!--  注册中心的地址，本服务需要到改地址发布自己的服务地址，这样消费者在注册中心就能看到自己的服务 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
+    
+ 	 <!--  可以指定是否启动访问日志，这个对有时排查线上问题非常有帮助。 
+ 	   dubbo所用的传输协议：dubbo://
+						rmi://
+						hessian://
+						http://
+						webservice://
+						thrift://
+						memcached://
+						redis://，默认就是dubbo，
+						参见博客“http://www.cnblogs.com/yangzhilong/p/6121551.html(dubbo通信协议之对比)”-->
+     <dubbo:protocol accesslog="true" name="dubbo" port="20881" />
+
+    <!--   <dubbo:annotation package="com.dubbo.test" /> -->
+
+    <dubbo:service 	interface="com.dubbo.test.service.UserService" 
+    				ref="userService2_1"
+    				protocol="dubbo"/>
+    <dubbo:service 	interface="com.dubbo.test.service.UserService" 
+    				ref="userService2_2"
+    				protocol="dubbo"/>
+
+    <context:component-scan base-package="com.dubbo.test" />
+
+</beans>
